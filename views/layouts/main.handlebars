@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+</head>
+
+<body id="home" class="scrollspy">
+    <div class="navbar-fixed">
+        <nav class="cyan">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo">MateriaScrapper</a>
+                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                        <i class="material-icons">menu</i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    {{{body}}}
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script>
+        //sidenav
+        const sidenav = document.querySelector('.sidenav');
+        M.Sidenav.init(sidenav, {});
+
+        //slider
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 500,
+            transition: 500,
+            inteval: 6000
+        });
+    </script>
+    <script>
+        $(document).on('click', '#search', function () {
+            $.ajax({
+                type: 'post',
+                url: '/search',
+                async : false,
+                data: {
+                    term: $('#search-input').val()
+                },
+                dataType: 'json',
+                success: function (res) {
+                    console.log('--------- res: ' + JSON.stringify(res));
+                },
+                error: function (err) {
+                    console.log('Error---------: ' + JSON.stringify(err));
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

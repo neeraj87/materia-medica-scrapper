@@ -1,0 +1,31 @@
+{
+  "name": "materia-medica-scrapper",
+  "version": "1.0.0",
+  "description": "Node.js web scrapping tool to scrap book/medicine names based on symptoms",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neeraj87/materia-medica-scrapper.git"
+  },
+  "author": "Neeraj Jadhav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neeraj87/materia-medica-scrapper/issues"
+  },
+  "homepage": "https://github.com/neeraj87/materia-medica-scrapper#readme",
+  "dependencies": {
+    "async": "^2.6.1",
+    "async-waterfall": "^0.1.5",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "path": "^0.12.7",
+    "promise": "^8.0.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "winston": "^3.0.0"
+  }
+}
